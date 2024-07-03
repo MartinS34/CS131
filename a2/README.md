@@ -10,29 +10,25 @@ This script can be executed with ./Backup.sh after it has been added to your PAT
 
 EX:
 
-[martinsu24@sjsu ~]$ ls
-bin cs131 index.html taxidata
+	[martinsu24@sjsu ~]$ ls
+	bin cs131 index.html taxidata
+# Backups dir does not exist
 
+	[martinsu24@sjsu ~]$ backup && ls backups
+	bin cs131 index.html taxidata
+# Directory 'backups' has been created.
 
-        Directory 'backups' has been created.
-[martinsu24@sjsu ~]$ backup && ls backups
-bin cs131 index.html taxidata
+	[martinsu24@sjsu ~]$ ls -l backups
+	total 0
+	-rw-rw-r-- 1 martinsu24 martinsu24 0 Jul 2 18:04 backup.log
+# Only log is contained in backups as no fies have been modified
 
+	[martinsu24@sjsu ~]$ touch cs131/shtest && backup
+	Successfully Backed Up File: /mnt/scratch/martinsu24/cs131//shtest in Directory: /mnt/scratch/martinsu24/cs131/
+# Touch/modify shtest & then execute backup
 
-        Only log is contained in backups as no fies have been modified
-[martinsu24@sjsu ~]$ ls -l backups
-total 0
--rw-rw-r-- 1 martinsu24 martinsu24 0 Jul 2 18:04 backup.log
-
-
-        Touch/modify shtest & then execute backup
-[martinsu24@sjsu ~]$ touch cs131/shtest && backup
-Successfully Backed Up File: /mnt/scratch/martinsu24/cs131//shtest in Directory: /mnt/scratch/martinsu24/cs131/
-
-
-        shtest was successfully backed up in backups directory
-[martinsu24@sjsu ~]$ ls -l backups
-total 8
--rw-rw-r-- 1 martinsu24 martinsu24 96 Jul 2 18:07 backup.log
--rw-rw-r-- 1 martinsu24 martinsu24 38 Jul 2 18:07 shtest
-~`
+	[martinsu24@sjsu ~]$ ls -l backups
+	total 8
+	-rw-rw-r-- 1 martinsu24 martinsu24 96 Jul 2 18:07 backup.log
+	-rw-rw-r-- 1 martinsu24 martinsu24 38 Jul 2 18:07 shtest
+# shtest was successfully backed up in backups directory`
