@@ -1,0 +1,50 @@
+  291  mkdir a1 	//Q1
+  293  cd a1		//Q1
+  296  ~  		//Q2: HDP: /mnt/scratch/martinsu24 
+  297  id		//Q3: command: id 
+			//Q3: UID: 1266(martinsu24), groups: 1267(martinsu24)
+  303  ls /proc/ | grep mem	
+
+  311  ls /proc/ | grep cpu
+	//Q4 file: meminfo
+	//Q4 file: cpuinfo
+
+  312  head /proc/meminfo	
+	//Q5: 73080640 kB
+
+  313  head /proc/cpuinf
+  314  cat /proc/cpuinfo
+  315  tail /proc/cpuinfo
+	//Q6: name: Power8 (architectured) 	
+	//Q6: 3.425 GHz
+	//Q6: processors: 256
+
+  321  ls /etc/ | grep os
+  324  head /etc/os-release
+  	//Q7: file: os-release , version: "8.6 (Oopta)"
+
+  325  cp /datasets/taxidata.tar.gz .
+  327  man tar
+  328  tar -xvzf taxidata.tar.gz
+  330  cd taxidata
+  356  awk -F',' '$2 ~ /2019-05-12/ { print $0 }' 2019-05.csv > test.txt
+	//Q8: seperated all may 12 pickup lines into sepearate file.
+
+  359  cut -d',' -f 17 test.txt > total19-05-12.txt 	
+	//Q8: seperated all total amounts
+
+  362  awk '{ total+= $1; count++ } END { print total/count }' total19-05-12.txt > totala1.txt
+	//Q8: algorithm to add all totals/n number of lines
+
+  369  awk 'max == "" || $1>max{max=$1} END {print max}' total19-05-12.txt
+	//Q9: uses max variable to compare all lines, if > max then max = value at line.
+
+  411* awk -F\, '$4 > 2' 2019-05.csv > passengers.txt
+	//Q10 seprates all lines that contain >2 passengers into seperate file
+
+  414  cut -d',' -f 9 passengers.txt > passengers1.txt	
+	//Q10 seperates the locationids column from the rest while including passengers>2
+
+  421  sort passengers1.txt | uniq -c > popularlocations.txt
+  422  sort popularlocations.txt
+	//Q10 sort file to chek all popular location ids
