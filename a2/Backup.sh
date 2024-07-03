@@ -1,4 +1,3 @@
-"Backup.sh" 29L, 1136C                                                                                                                                                       29,4          All
 #!/bin/bash
 #
 # cronjob :    */1 * * * * $HOME/bin/Backup.sh
