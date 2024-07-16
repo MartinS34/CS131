@@ -1,0 +1,51 @@
+		# Final Commands used for Q1
+  
+   39  sed -n '/^1.0,/p' 2019-10.csv > vendor2.csv
+   40  wc vendor2.csv > a3.txt
+
+#trash cmnds
+   41  sed -e 's/[:-"]/ /g' 2019-10.csv | head -3
+   42  sed -e 's/://g' -e 's/-//g' -e 's/"//g' 2019-10.csv | head -3
+	
+		# Final commands used for Q2 
+  
+   46  sed -e 's/://g' -e 's/-//g' -e 's/"//g' 2019-10.csv > no-separators.csv 
+   47  echo "==================" >> a3.txt
+   48  head -10 no-separators.csv >> a3.txt
+   
+#trash cmnds
+   54  cat a3.txt
+   58  sed 's/.[0-9]*//g' no-separators.csv | head -3
+   61  sed 's/.[0-9]+//g' no-separators.csv | head -3 
+   64  sed 's/.[0-9]*//g' no-separators.csv | head -3
+   69  sed -e 's/\.[0-9]\+//g' no-separators.csv | head -3
+  
+		# Final commands used for Q3
+   
+   70  sed -e 's/\.[0-9]\+//g' no-separators.csv > no-fractions.csv
+   71  echo "==================" >> a3.txt
+   72  head -10 no-fractions.csv >> a3.txt
+   
+#trash cmds
+   77  clear
+   78  awk -F '{ if ($16 >= 10.0) tip_amounts[$14]++ } 2019-11.csv | head -2
+   79  head 3 2019-11.csv
+   80  awk -F '{ if ($17 >= 10.0) tip_amounts[$14]+1 } END { for (i in tip_amounts) print i, tip_amounts[i] }' 2019-10.csv | head -2
+   81  awk -F '{ if ($17 >= 10.0) tip_amounts[$14]++ } END { for (each_tip in tip_amounts) print each_tip, tip_amounts[each_tip] }' 2019-10.csv | head -3
+   86  clear
+
+		# Final commands used for Q4
+
+  109  awk -F',' 'NR > 1 && $17 >= 10.0 { tip_amounts[$14]++ } END { for (each_tip in tip_amounts) print each_tip, tip_amounts[each_tip] }' 2019-10.csv > results.txt
+
+#trash cmds
+  118* awk { print $1, $2 }' results.txt | sort -n | head -5
+  119  awk '{ print $1, $2 }' results.txt | sort -n | head -5
+  122  awk 'NR > 1 { print $2, $1 }' results.txt | sort -nr | head -4
+  125  awk '{ print $2, $1 }' results.txt | sort -nr | awk '{ print $2, $1 }' | head -5
+
+	# Final command used for Q5
+  126  echo "=================" >> a3.txt
+  127  awk '{ print $2, $1 }' results.txt | sort -nr | awk '{ print $2, $1 }' | head -5 >> a3.txt
+  
+  133  history 100 > cmnd.log
