@@ -1,0 +1,30 @@
+ 1085  cut -f3 drugsComTrain_raw.tsv | sort | uniq -c | sort -nr | head -n 10 > condCount.tsv
+ 
+ 1091  awk '{print $2}' condCount.tsv > topCond.txt
+ 
+ 1103  head -n 1 drugsComTrain_raw.tsv > FinalDrugDS.tsv
+
+ 1120  awk 'NR==FNR { cond[$0]; next } $3 in cond' topCond.txt drugsComTrain_raw.tsv >> FinalDrugDS.tsv
+ 
+
+ 1186  vim wr.sh
+ 1187  chmod +x wr.sh
+ 1188  ./wr.sh
+ 
+ 1202  vim ar.sh
+ 1203  chmod +x ar.sh
+ 1204  ./ar.sh
+
+ 1206  vim top5.sh
+ 1209  chmod +x top5.sh
+ 1210  ./top5sh
+ 1219  head -5 top5.tsv
+ 
+ 1220  cat top5.tsv | grep -E "Diazepam|Valium|Xanax|Alprazolam|Lorazepam" | head -10\n
+ 1223  ./top5.sh
+ 1225  uniq -c top5.tsv
+ 
+ 1226  grep -c "Diazepam" /Users/martiin/Desktop/a5_ds/FinalDrugDS.tsv\n
+ 1227  grep -c "Valium" /Users/martiin/Desktop/a5_ds/FinalDrugDS.tsv\n
+ 
+ 1234  history | tail -100
