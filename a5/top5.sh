@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#THIS SCRIPT WAS USED TO FILTER ANXIET MEDS > top5.tsv
 # Define the top 5 drugs
 top_drugs=("Diazepam" "Valium" "Xanax" "Alprazolam" "Lorazepam")
 
