@@ -1,0 +1,5 @@
+ar.sh and wr.sh, are both shell scripts that i used to find the values of mean rating, and weighted mean rating.
+to run both scripts, the $input_file= "/path/to/FinalDrugDS.tsv" will need to be updated
+
+top5.sh was used to filter out top5 anxiety meds. creates top5.tsv
+FinalDrugDS.tsv is used in all shell scripts. top5.tsv is used in a5.ipynb
